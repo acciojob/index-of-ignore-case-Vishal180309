@@ -1,8 +1,15 @@
-function indexOfIgnoreCase(s1, s2) {
-  // write your code here
-}
+document.getElementById('find-button').addEventListener('click', function() {
+    let inputString = document.getElementById('input-string').value;
+    let inputSubstring = document.getElementById('input-substring').value;
+    let result = indexOfIgnoreCase(inputString, inputSubstring);
 
-// Please do not change the code below
-const s1 = prompt("Enter s1:");
-const s2 = prompt("Enter s2:");
-alert(indexOfIgnoreCase(s1, s2));
+    if (result === -1) {
+        document.getElementById('result').innerHTML = 'Substring not found';
+    } else {
+        document.getElementById('result').innerHTML = 'Index of substring: ' + result;
+    }
+});
+
+function indexOfIgnoreCase(str, subStr) {
+    return str.toLowerCase().indexOf(subStr.toLowerCase());
+}
